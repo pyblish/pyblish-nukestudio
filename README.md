@@ -10,9 +10,12 @@ Make sure you have installed Pyblish before continuing.
 
 ## Introduction
 
-The integration comes in the form of a menu-item called *"Publish"*, located directly under the right-click menu on the timeline.
+With this integration you can publish from two places in NukeStudio;
 
-Once clicked, it will display a Pyblish graphical user interface.
+- Menu-item called *"Publish"*, located directly under the right-click menu on the timeline.
+- Submission called *"Pyblish"*, located in the export dialog in the dropdown menu *"Render with:"*.
+
+This will display a Pyblish graphical user interface.
 
 ## Installation
 
@@ -60,5 +63,11 @@ This is the current selection on the timeline.
 
 ### ```context.data["activeProject"]```
 
-
 This is the project being published from.
+
+### ```context.data["submission"]```
+
+This is the submission object from the export dialog. This is TaskGroup which you can read more about here;
+
+https://www.thefoundry.co.uk/products/hiero/developers/10.5/hieropythondevguide/export.html
+https://www.thefoundry.co.uk/products/hiero/developers/10.5/hieropythondevguide/api/api_core.html#hiero.core.TaskGroup

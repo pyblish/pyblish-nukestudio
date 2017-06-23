@@ -39,6 +39,7 @@ def setup(console=False, port=None, menu=True):
 
     register_plugins()
     register_host()
+    add_submission()
 
     if menu:
         add_to_filemenu()
@@ -118,6 +119,22 @@ def register_plugins():
 
 def add_to_filemenu():
     PublishAction()
+
+
+class PyblishSubmission(hiero.exporters.FnSubmission.Submission):
+
+    def __init__(self):
+        hiero.exporters.FnSubmission.Submission.__init__(self)
+
+    def addToQueue(self):
+        # Add submission to Hiero module for retrieval in plugins.
+        hiero.submission = self
+        show()
+
+
+def add_submission():
+    registry = hiero.core.taskRegistry
+    registry.addSubmission("Pyblish", PyblishSubmission)
 
 
 class PublishAction(QtGui.QAction):
