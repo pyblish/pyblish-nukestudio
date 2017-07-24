@@ -1,7 +1,5 @@
 import pyblish.api
 
-import hiero
-
 
 class CollectActiveProject(pyblish.api.ContextPlugin):
     """Inject the active project into context"""
@@ -9,5 +7,6 @@ class CollectActiveProject(pyblish.api.ContextPlugin):
     order = pyblish.api.CollectorOrder - 0.1
 
     def process(self, context):
+        import hiero
 
         context.data["activeProject"] = hiero.ui.activeSequence().project()
