@@ -2,7 +2,7 @@ import pyblish.api
 
 
 class CollectSelection(pyblish.api.ContextPlugin):
-    """Inject the active project into context"""
+    """Inject the selection in the context."""
 
     order = pyblish.api.CollectorOrder - 0.1
 
