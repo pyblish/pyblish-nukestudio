@@ -9,4 +9,5 @@ class CollectSubmission(pyblish.api.ContextPlugin):
     def process(self, context):
         import hiero
 
-        context.data["submission"] = hiero.submission
+        if hasattr(hiero, "submission"):
+            context.data["submission"] = hiero.submission
