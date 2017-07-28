@@ -151,6 +151,12 @@ class PublishAction(QtGui.QAction):
 
     def publish(self):
         import pyblish_nukestudio
+
+        # Removing "submission" attribute from hiero module, to prevent tasks
+        # from getting picked up when not using the "Export" dialog.
+        if hasattr(hiero, "submission"):
+            del hiero.submission
+
         pyblish_nukestudio.show()
 
     def eventHandler(self, event):
